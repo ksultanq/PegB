@@ -1,5 +1,6 @@
 package com.alqasrawi.pegb.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View.GONE
@@ -10,7 +11,10 @@ import butterknife.OnClick
 import butterknife.OnItemSelected
 import com.alqasrawi.pegb.R
 import com.alqasrawi.pegb.adapter.CountriesAdapter
+import com.alqasrawi.pegb.constants.Keys.EXTRA_COUNTRY
+import com.alqasrawi.pegb.constants.Keys.EXTRA_PERIOD
 import com.alqasrawi.pegb.data.Country
+import com.alqasrawi.pegb.forecast.ForecastActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -51,13 +55,16 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         }
     }
 
-    override fun showWeatherInfoScreen(country: Country, period: Int) {
-        // TODO start WeatherInfoActivity
+    override fun showForecastInfoScreen(country: Country, period: Int) {
+        var forecastntent: Intent = Intent(this, ForecastActivity::class.java)
+        forecastntent.putExtra(EXTRA_COUNTRY, country)
+        forecastntent.putExtra(EXTRA_PERIOD, period)
+        startActivity(forecastntent)
     }
 
     @OnClick(R.id.showInfoButton)
     fun onInfoButtonClicked() {
-        mainPresenter.showCountryWeatherInfo(selectedCountryPosition, selectedPeriodPosition)
+        mainPresenter.showForecastInfo(selectedCountryPosition, selectedPeriodPosition)
     }
 
     @OnItemSelected(R.id.countriesSpinner)

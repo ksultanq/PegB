@@ -1,4 +1,4 @@
-package com.alqasrawi.pegb
+package com.alqasrawi.pegb.constants
 
 object Config {
 

@@ -1,8 +1,8 @@
 package com.alqasrawi.pegb.main
 
-import com.alqasrawi.pegb.Config.API_KEY
-import com.alqasrawi.pegb.Config.API_LANGUAGE
-import com.alqasrawi.pegb.Config.REGION_MEA
+import com.alqasrawi.pegb.constants.Config.API_KEY
+import com.alqasrawi.pegb.constants.Config.API_LANGUAGE
+import com.alqasrawi.pegb.constants.Config.REGION_MEA
 import com.alqasrawi.pegb.data.Country
 import com.alqasrawi.pegb.service.ApiService
 import com.alqasrawi.pegb.util.CollectionUtils.isNullOrEmpty
@@ -41,11 +41,11 @@ class MainPresenter(val mainView: MainContract.View) : MainContract.Presenter {
                 })
     }
 
-    override fun showCountryWeatherInfo(countryPosition: Int, periodPosition: Int) {
+    override fun showForecastInfo(countryPosition: Int, periodPosition: Int) {
         var country = countries?.get(countryPosition)
         var period = periods[periodPosition]
         country.let {
-            mainView?.showWeatherInfoScreen(it!!, period)
+            mainView?.showForecastInfoScreen(it!!, period)
         }
     }
 

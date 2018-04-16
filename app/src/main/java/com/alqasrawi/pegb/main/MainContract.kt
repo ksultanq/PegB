@@ -1,5 +1,6 @@
 package com.alqasrawi.pegb.main
 
+import com.alqasrawi.pegb.base.BaseView
 import com.alqasrawi.pegb.data.Country
 
 interface MainContract {
@@ -8,19 +9,15 @@ interface MainContract {
 
         fun getCountries()
 
-        fun showCountryWeatherInfo(countryPosition: Int, periodPosition: Int)
+        fun showForecastInfo(countryPosition: Int, periodPosition: Int)
 
     }
 
-    interface View {
+    interface View : BaseView {
 
         fun showCountries(countries: List<Country>)
 
-        fun showWeatherInfoScreen(country: Country, position: Int)
-
-        fun showHideLoadingView(show: Boolean)
-
-        fun showErrorMessage()
+        fun showForecastInfoScreen(country: Country, position: Int)
 
     }
 

@@ -1,6 +1,6 @@
 package com.alqasrawi.pegb.service
 
-import com.alqasrawi.pegb.Config.API_BASE_URL
+import com.alqasrawi.pegb.constants.Config.API_BASE_URL
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
 
@@ -16,4 +16,5 @@ object ApiService {
 
         api = retrofit!!.create<Api>(Api::class.java!!)
     }
+
 }
