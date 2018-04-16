@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Peg b</string>
+    <string name="app_name">Weather forecast</string>
+
+    <!-- messages -->
+    <string name="general_error_message">Something went wrong, please try again later!</string>
+
+    <!-- labels -->
+    <string name="select_country">Please select your country:</string>
+    <string name="select_period">Please select the period:</string>
+    <string name="show_weather_info">Show weather Info</string>
+
 </resources>
